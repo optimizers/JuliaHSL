@@ -67,7 +67,7 @@ breaklinks={true}
 \GDnumero{XX}
 \GDauteursCourts{A. Montoison, J. Fowkes, A. Lister, D. Orban}
 \GDauteursCopyright{Montoison, Fowkes, Lister, Orban}
-\GDpostpubcitation{A. Montoison, J. Fowkes, A. Lister, D. Orban (2023). ``Un exemple de citation'', \emph{Journal of Journals}, vol. X issue Y, p. n-m}{https://www.gerad.ca/fr}
+\GDpostpubcitation{J. Fowkes, A. Lister, A. Montoison, D. Orban (2023). ``Un exemple de citation'', \emph{Journal of Journals}, vol. X issue Y, p. n-m}{https://www.gerad.ca/fr}
 \GDsupplementname{Internet Appendix}
 
 \begin{document}
@@ -77,9 +77,9 @@ breaklinks={true}
 \begin{GDpagetitre}
 
 \begin{GDauthlist}
-    \GDauthitem{Alexis Montoison \ref{affil:1}}
     \GDauthitem{Jaroslav Fowkes \ref{affil:2}}
     \GDauthitem{Andrew Lister \ref{affil:2}}
+    \GDauthitem{Alexis Montoison \ref{affil:1}}
     \GDauthitem{Dominique Orban \ref{affil:1}}
 \end{GDauthlist}
 
@@ -89,9 +89,9 @@ breaklinks={true}
 \end{GDaffillist}
 
 \begin{GDemaillist}
-    \GDemailitem{alexis.montoison@polymtl.ca}
     \GDemailitem{jaroslav.fowkes@stfc.ac.uk}
     \GDemailitem{andrew.lister@stfc.ac.uk}
+    \GDemailitem{alexis.montoison@polymtl.ca}
     \GDemailitem{dominique.orban@gerad.ca}
 \end{GDemaillist}
 
@@ -108,7 +108,7 @@ breaklinks={true}
 This paper presents \texttt{JuliaHSL}.
 
 \paragraph{Keywords: }
-Julia, numerical linear algebra, sparse
+Julia, numerical linear algebra
 \end{GDabstract}
 
 \begin{GDabstract}{R\'esum\'e}
@@ -154,10 +154,6 @@ LBT allows one to dynamically switch the BLAS and LAPACK backends between e.g.\ 
 For information on how to use each function available through this package directly please see the relevant documentation on \href{https://www.hsl.rl.ac.uk/catalogue/}{the HSL website}.
 Where C interfaces are available, the C documentation should be used.
 
-\begin{flushright}
-``One package to rule them all'' -- Alexis Montoison
-\end{flushright}
-
 \section{Building JuliaHSL with Meson}
 
 \subsection{Meson}
@@ -168,7 +164,6 @@ After configuration, it is equivalent to build the package or install it directl
 
 \subsection{Configuration}
 
-\vspace{-0.3cm}
 \begin{jllisting}
 meson setup builddir [options...]
 CC=icc FC=ifort meson setup builddir [options...]
@@ -198,11 +193,8 @@ See this \href{https://mesonbuild.com/Reference-tables.html}{table} for supporte
   \caption{Options supported by JuliaHSL}
 \end{table}
 
-\newpage
-
 \subsection{Compilation}
 
-\vspace{-0.3cm}
 \begin{jllisting}
 # Meson
 meson compile -C builddir
@@ -214,7 +206,6 @@ compiles JuliaHSL in the \jlinl{builddir} folder.
 
 \subsection{Installation}
 
-\vspace{-0.3cm}
 \begin{jllisting}
 # Meson
 meson install -C builddir
@@ -227,7 +218,6 @@ This can be changed by passing the command line argument \jlinl{--prefix} to Mes
 \begin{jllisting}
 meson setup builddir --prefix=~/juliahsl
 \end{jllisting}
-\vspace{-0.5cm}
 
 \subsection{Cross-compilation}
 
@@ -264,7 +254,6 @@ Due to security policy of the macOS operating system, the Mac users may need to 
 xattr -d com.apple.quarantine HSL_jll.jl-XXXX.YY.ZZ.zip
 xattr -d com.apple.quarantine HSL_jll.jl-XXXX.YY.ZZ.tar.gz
 \end{jllisting}
-\vspace{-0.5cm}
 
 \subsection{Load an LP64 BLAS and LAPACK backend}
 
