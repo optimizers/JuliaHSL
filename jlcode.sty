@@ -124,9 +124,10 @@
 morekeywords=[1]
 {%
 abstract type,baremodule,begin,break,catch,ccall,const,continue,do,else,elseif,%
-end,export,finally,for,function,global,if,import,in,isa,let,local,macro,module,%
-mutable struct,primitive type,quote,return,struct,try,using,where,while%
+end,export,finally,for,function,global,if,import,in,isa,let,macro,module,%
+mutable struct,primitive type,quote,return,struct,try,where,while%
 },%
+% local and using were removed for the documentation of JuliaHSL
 %
 % julia's literals:
 %
@@ -414,15 +415,15 @@ morestring=[s]{var"}{"},%
 
 % default color theme
 \newcommand{\loaddefaultcolors}{%
-\definecolor{jlbase}{HTML}{111111}%         % julia's base color
-\definecolor{jlkeyword}{HTML}{111111}%      % julia's keywords
+\definecolor{jlbase}{HTML}{000000}%         % julia's base color
+\definecolor{jlkeyword}{HTML}{000000}%      % julia's keywords
 \definecolor{jlliteral}{HTML}{397300}%      % julia's literals
 \definecolor{jlbuiltin}{HTML}{397300}%      % julia's built-ins
 \definecolor{jlmacros}{HTML}{1F7199}%       % julia's macros
-\definecolor{jlfunctions}{HTML}{111111}%    % julia's functions
+\definecolor{jlfunctions}{HTML}{000000}%    % julia's functions
 \definecolor{jlcomment}{HTML}{19189E}%      % julia's comments
 \definecolor{jlstrnum}{HTML}{880000}%       % julia's strings or numbers
-\definecolor{jlop}{HTML}{111111}%           % julia's operators
+\definecolor{jlop}{HTML}{000000}%           % julia's operators
 \definecolor{jlbackground}{HTML}{F2F2F2}%   % the background of the code block
 \definecolor{jlrule}{HTML}{DDDDDD}%         % the rule of the code block
 \definecolor{jllinenumbers}{HTML}{000000}%  % the line numbers of the code block
@@ -496,7 +497,7 @@ morestring=[s]{var"}{"},%
   \setmonofont{JuliaMono}[
   Extension = .ttf,
   Path = ./,
-  Scale = 0.87,
+  Scale = 1,
   Contextuals = Alternate,
   UprightFont = *-Light,
   BoldFont = *-SemiBold,
@@ -518,7 +519,7 @@ morestring=[s]{var"}{"},%
 
 
 % basic font style
-\def\jlbasicfont{\ttfamily\relsize{-1}\selectfont}
+\def\jlbasicfont{\ttfamily\relsize{0}\selectfont}
 
 
 % gerneral style for the code block
@@ -550,7 +551,7 @@ aboveskip={1.5\baselineskip}, belowskip={1.5\baselineskip}
 \newlength{\xmrgn}
 \newcommand{\calcboxlengths}{%
 \settowidth{\bfem}{\jlbasicfont{m}}%
-\setlength{\xmrgn}{(\columnwidth - \jlc@charsperline\bfem)*\real{0.5}}%
+\setlength{\xmrgn}{(\columnwidth - \jlc@charsperline\bfem)*\real{0}}%
 }
 \calcboxlengths
 
@@ -2170,14 +2171,16 @@ literate=
   \lst@TestEOLChar{#2}%
   \lstset{breaklines=true, #1}%
   \csname\@lst @SetFirstNumber\endcsname%
+  \vspace{-0.5cm}
 }{%
   \@nobreakfalse
   \csname\@lst @SaveFirstNumber\endcsname%
+  \vspace{-0.5cm}
 }
 
 
 % defining the font for the inline code
-\def\jlinlfont{\loadthemecolors\color{jlstrnum}\ttfamily\relsize{-0.5}\selectfont}
+\def\jlinlfont{\loadthemecolors\color{jlstrnum}\ttfamily\relsize{0}\selectfont}
 
 % defining the \jlinl for dispalying in-line code snippets
 \newlength{\jlinlem}
