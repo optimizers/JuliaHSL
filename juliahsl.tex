@@ -46,6 +46,7 @@ breaklinks={true}
 % Commande LaTeX pour faciliter le remplacement des liens Markdown [...](...)
 \newcommand{\reversedhref}[2]{\href{#2}{#1}}
 
+\newcommand{\JuliaHSL}{JuliaHSL}  % Useful if we rename JuliaHSL
 \newcommand{\HSLjll}{HSL\_jll.jl}
 \newcommand{\Ipoptjll}{Ipopt\_jll.jl}
 \newcommand{\LBTjll}{libblastrampoline\_jll.jl}
@@ -61,8 +62,8 @@ breaklinks={true}
 %% %%%%%%%%%% Working paper metadata %%%%%%%%%%%%%%%
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\GDtitre{\texttt{JuliaHSL.jl}: the ultimate collection for large scale scientific computation}
-\GDmois{Mai}{May}
+\GDtitre{\texttt{\JuliaHSL}: the ultimate collection for large-scale scientific computation}
+\GDmois{Juin}{June}
 \GDannee{2023}
 \GDnumero{XX}
 \GDauteursCourts{J. Fowkes, A. Lister, A. Montoison, D. Orban}
@@ -105,10 +106,11 @@ breaklinks={true}
 \GDabstracts
 
 \begin{GDabstract}{Abstract}
-JuliaHSL is a comprehensive collection of HSL packages that facilitates their integration into C, Fortran or Julia projects.
-One of the notable features of JuliaHSL is its innovative compilation system based on Meson.
-This new build system not only significantly accelerates the compilation process but also ensures portability across multiple operating systems.
-To further streamline the user experience, JuliaHSL provides a precompiled version called \HSLjll, specifically designed for the Julia ecosystem.
+The Harwell Subroutine Library (HSL) is a renowned suite of efficient and robust numerical algorithms designed to tackle complex mathematical problems such as solving sparse linear systems or computing eigenvalues and eigenvectors of sparse matrices.
+\JuliaHSL is a comprehensive collection of HSL packages that facilitates their integration into C, Fortran or Julia projects.
+One of the notable features of \JuliaHSL is its innovative compilation system based on Meson.
+The new build system not only significantly accelerates compilation, but also ensures portability across multiple operating systems.
+To further streamline the user experience, \JuliaHSL provides a precompiled version called \HSLjll, specifically designed for the Julia ecosystem.
 This eliminates the need for users to compile anything on their local machines, offering ready-to-use functionality right away.
 
 \paragraph{Keywords: }
@@ -116,10 +118,11 @@ HSL, Julia, Fortran, C, sparse linear algebra, Meson, cross-compilation, portabi
 \end{GDabstract}
 
 \begin{GDabstract}{R\'esum\'e}
-JuliaHSL est une la collection ultime des bibliothèques HSL et facilite leur intégration dans des projets en C, Fortran ou Julia.
-L'un des aspects notables de JuliaHSL est son système de compilation innovant basé sur Meson.
+La bibliothèque de sous-programmes Harwell (HSL) est une suite renommée de méthodes numériques efficaces et robustes conçus pour résoudre des problèmes mathématiques complexes tels que la résolution de systèmes linéaires creux ou le calcul de valeurs propres et de vecteurs propres pour les matrices creuses.
+\JuliaHSL est la collection ultime des bibliothèques HSL et facilite leur intégration dans des projets en C, Fortran ou Julia.
+L'un des aspects notables de \JuliaHSL est son système de compilation innovant basé sur Meson.
 Ce nouveau système de compilation accélère considérablement la compilation tout en garantissant la portabilité sur plusieurs systèmes d'exploitation.
-Pour simplifier davantage l'expérience utilisateur, JuliaHSL propose une version précompilée \HSLjll, spécialement conçue pour l'écosystème Julia.
+Pour simplifier davantage l'expérience utilisateur, \JuliaHSL propose une version précompilée \HSLjll, spécialement conçue pour l'écosystème Julia.
 Les utilisateurs évitent ainsi la compilation sur leurs machines locales avec une bibliothèque prête à l'emploi.
 
 \paragraph{Mots cl\'es\,: }
@@ -130,7 +133,7 @@ HSL, Julia, Fortran, C, alg\`ebre lin\'eaire creuse, Meson, compilation multi-pl
 Alexis Montoison is supported by an FRQNT grant and an excellence scholarship of the IVADO institute, and Dominique Orban is partially supported by an NSERC Discovery Grant.
 
 This work began while Alexis Montoison was visiting Nick Gould, Jaroslav Fowkes and the \href{https://www.numerical.rl.ac.uk/}{Computational Mathematics Group} at the \href{https://www.ukri.org/about-us/stfc/locations/rutherford-appleton-laboratory/}{STFC Rutherford Appleton Laboratory} in December 2022.
-He expresses its appreciations to the HSL team for their invitation and their wonderful hospitality.
+He expresses its appreciation to the HSL team for their invitation and their wonderful hospitality.
 
 The authors would like to thank:
 \begin{itemize}
@@ -149,27 +152,27 @@ The authors would like to thank:
 
 \section{Introduction}
 
-\href{https://licences.stfc.ac.uk/product/julia-hsl}{JuliaHSL} is the ultimate sparse linear algebra collection for large-scale scientific computing.
+\href{https://licences.stfc.ac.uk/product/julia-hsl}{\JuliaHSL} is the ultimate sparse linear algebra collection for large-scale scientific computing.
 It contains more than 155 HSL packages and aims to facilitate the use of HSL in \href{https://julialang.org/}{Julia}.
-JuliaHSL also integrates easily into Fortran and C projects such as \href{https://github.com/ralna/GALAHAD}{GALAHAD}.
+\JuliaHSL also integrates easily into Fortran and C projects such as \href{https://github.com/ralna/GALAHAD}{GALAHAD}.
 
-JuliaHSL focuses on ease of use for users on all platforms by using a Meson build system.
+\JuliaHSL focuses on ease of use for users on all platforms by using the Meson build system.
 Meson enables the distribution of prebuilt binaries for the package using BinaryBuilder.jl.
-Additionally, JuliaHSL supports either METIS 5 or the older METIS 4.
+Additionally, \JuliaHSL supports either METIS 5 or the older METIS 4.
 
 This new package provides the source code of the included HSL packages as well as a Julia package named \HSLjll.
-\HSLjll~is a pre-built version of JuliaHSL to be readily used in the Julia ecosystem.
-Once \HSLjll~is installed, the shared library that contains the C and Fortran routines of the HSL packages can be called in Julia and the HSL wrappers provided in the Julia interface HSL.jl are functional.
+\HSLjll~is a pre-built version of \JuliaHSL to be readily used in the Julia ecosystem.
+Once \HSLjll~is installed, the shared library that contains the C and Fortran routines of the HSL packages can be called from Julia and the HSL wrappers provided in the Julia interface HSL.jl are functional.
 \HSLjll~also provides an easy way to use the HSL linear solvers MA27, MA57, MA77, MA86 and MA97 within the IPOPT.jl interface to the IPOPT nonlinear optimization solver.
 
-Two versions of \HSLjll~are available. One precompiled with OpenBLAS that requires at least Julia 1.6 and the other version precompiled with libblastrampoline (LBT) that requires at least Julia 1.9.
+Two versions of \HSLjll~are included. One precompiled with OpenBLAS that requires at least Julia 1.6 and the other version precompiled with libblastrampoline (LBT) that requires at least Julia 1.9.
 LBT allows one to dynamically switch the BLAS and LAPACK backends between e.g. OpenBLAS, BLIS, Intel MKL or Apple Accelerate.
 \HSLjll~is precompiled for various operating systems (Windows, Mac, Linux, FreeBSD) and architectures (x64, arm64, ppc64).
 
 For information on how to use each function available through this package directly please see the relevant documentation on \href{https://www.hsl.rl.ac.uk/catalogue/}{the HSL website}.
 Where C interfaces are available, the C documentation should be used.
 
-\section{Building JuliaHSL with Meson}
+\section{Building \JuliaHSL with Meson}
 
 \subsection{Meson}
 
@@ -186,7 +189,7 @@ CC=icc FC=ifort meson setup builddir [options...]
 creates the build directory \jlinl{builddir} and populates it in preparation for a build.
 Non-default compilers can be selected by setting the \jlinl{CC} and \jlinl{FC} shell variables.
 See this \href{https://mesonbuild.com/Reference-tables.html}{table} for supported compilers.
-The compilation of JuliaHSL has been tested with the fortran compilers \jlinl{gfortran}, \jlinl{ifort}, \jlinl{ifx} and \jlinl{nagfor}.
+The compilation of \JuliaHSL has been tested with the fortran compilers \jlinl{gfortran}, \jlinl{ifort}, \jlinl{ifx} and \jlinl{nagfor}.
 
 \begin{table}[ht]
   \label{tab:options}
@@ -207,7 +210,7 @@ The compilation of JuliaHSL has been tested with the fortran compilers \jlinl{gf
     -Dlibmetis\_include & [~]           & location of the METIS headers    \\ \hline
     -Dlibmpi\_include   & [~]           & location of the MPI headers      \\ \hline
   \end{tabular}
-  \caption{Options supported by JuliaHSL}
+  \caption{Options supported by \JuliaHSL}
 \end{table}
 
 \subsection{Compilation}
@@ -219,7 +222,7 @@ meson compile -C builddir
 # Ninja
 ninja -C builddir
 \end{jllisting}
-compiles JuliaHSL in the \jlinl{builddir} folder.
+compiles \JuliaHSL in the \jlinl{builddir} folder.
 
 \subsection{Installation}
 
@@ -238,15 +241,15 @@ meson setup builddir --prefix=~/juliahsl
 
 \subsection{Cross-compilation}
 
-JuliaHSL can be easily cross-compiled with the Julia package \href{https://github.com/JuliaPackaging/BinaryBuilder.jl}{BinaryBuilder.jl}.
+\JuliaHSL can be easily cross-compiled with the Julia package \href{https://github.com/JuliaPackaging/BinaryBuilder.jl}{BinaryBuilder.jl}.
 We provide the script \jlinl{build\_tarballs.jl} to easily regenerate an \HSLjll~with different options or dependencies, such as METIS 4 instead of METIS 5.
 It can also be used to generate a static library \jlinl{libhsl.a} for an application outside of Julia.
-Commands to cross-compile JuliaHSL are available in the file \jlinl{build\_tarballs.jl}.
-Note that the fortran compiler used to cross-compile JuliaHSL is \jlinl{gfortran}.
+Commands to cross-compile \JuliaHSL are available in the file \jlinl{build\_tarballs.jl}.
+Note that the fortran compiler used to cross-compile \JuliaHSL is \jlinl{gfortran}.
 
-\section{Use JuliaHSL in C and Fortran projects}
+\section{Use \JuliaHSL in C and Fortran projects}
 
-Once JuliaHSL is compiled, you can link it to your C and Fortran projects with
+Once \JuliaHSL is compiled, you can link it to your C and Fortran projects with
 \begin{jllisting}
 # C
 -I${prefix}/include -L${prefix} -lhsl
@@ -279,7 +282,7 @@ xattr -d com.apple.quarantine lbt_HSL_jll.jl-XXXX.YY.ZZ.tar.gz
 
 By default Julia ships with only an ILP64 version of OpenBLAS as BLAS and LAPACK backend.
 ILP64 libraries use the 64-bit integer type (necessary for indexing large arrays, with more than $2^{31}-1$ elements), whereas the LP64 libraries index arrays with the 32-bit integer type.
-JuliaHSL can only be linked with LP64 versions of BLAS and LAPACK as HSL uses 32-bit integer index arrays.
+\JuliaHSL can only be linked with LP64 versions of BLAS and LAPACK as HSL uses 32-bit integer index arrays.
 Thus, one version of \HSLjll~is precompiled with \OpenBLASjll~and automatically loads an LP64 version of OpenBLAS with a \jlinl{using HSL_jll}.
 For the version precompiled with \LBTjll~, the user needs to manually load one LP64 BLAS and LAPACK backend except if \HSLjll~is used with \href{https://github.com/JuliaSmoothOptimizers/HSL.jl}{HSL.jl} or \href{https://github.com/jump-dev/Ipopt.jl}{Ipopt.jl}.
 \begin{jllisting}
@@ -298,7 +301,7 @@ The user can also use their own LP64 version of BLAS and LAPACK.
 
 \subsection{How to use \HSLjll~in Julia packages}
 
-A version 1.0 of \HSLjll~based on this dummy \href{https://github.com/ralna/JuliaHSL}{JuliaHSL} was precompiled with \href{https://github.com/JuliaPackaging/Yggdrasil}{Yggdrasil}.
+A version 1.0 of \HSLjll~based on this dummy \href{https://github.com/ralna/JuliaHSL}{\JuliaHSL} was precompiled with \href{https://github.com/JuliaPackaging/Yggdrasil}{Yggdrasil}.
 Therefore \HSLjll~is a registered Julia package and can be added as a dependency of any Julia package.
 The dummy version only has one C function \jlinl{JULIAHSL\_isfunctional} that returns the boolean \jlinl{false}.
 The real version also exports this C function and returns the boolean \jlinl{true}.
