@@ -152,13 +152,14 @@ The authors would like to thank:
 
 \section{Introduction}
 
-\href{https://licences.stfc.ac.uk/product/julia-hsl}{\JuliaHSL} is the ultimate sparse linear algebra collection for large-scale scientific computing.
-It contains more than 155 HSL packages and aims to facilitate the use of HSL in \href{https://julialang.org/}{Julia}.
-\JuliaHSL also integrates easily into Fortran and C projects such as \href{https://github.com/ralna/GALAHAD}{GALAHAD}.
+The HSL Mathematical Software Library, originally known as the Harwell Subroutine Library, is a valuable resource for researchers, scientists, and engineers working on numerical computations.
+It provides a comprehensive collection of robust, well-tested, and highly efficient mathematical routines, covering areas such as sparse linear or  eigenvalue problems.
 
+\href{https://licences.stfc.ac.uk/product/julia-hsl}{\JuliaHSL} is a collection of 155 HSL packages.
+It aims to facilitate the use of HSL in \href{https://julialang.org/}{Julia} as well as Fortran and C projects such as \href{https://github.com/ralna/GALAHAD}{GALAHAD}.
 \JuliaHSL focuses on ease of use for users on all platforms by using the Meson build system.
 Meson enables the distribution of prebuilt binaries for the package using BinaryBuilder.jl.
-Additionally, \JuliaHSL supports either METIS 5 or the older METIS 4.
+Additionally, \JuliaHSL supports either METIS 5 or the older METIS 4 \citep{karypis-kumar-1997}.
 
 This new package provides the source code of the included HSL packages as well as a Julia package named \HSLjll.
 \HSLjll~is a pre-built version of \JuliaHSL to be readily used in the Julia ecosystem.
@@ -348,14 +349,18 @@ optimize!(model)
 The available HSL linear solvers are \jlinl{"ma27"}, \jlinl{"ma57"}, \jlinl{"ma77"}, \jlinl{"ma86"} and \jlinl{"ma97"}.
 If no LP64 BLAS and LAPACK backend is loaded, Ipopt.jl loads \OpenBLASjll~automatically just like HSL.jl.
 
-\section{Bug reports and discussions}
+\section{Discussions}
+
+Ygg?
+
+\section{Bug reports}
 
 If you think you have found a bug, feel free to open an \href{https://github.com/ralna/JuliaHSL/issues}{issue}.
 Useful suggestions and requests can also be opened as issues.
 If you would like to ask a question not suitable for a bug report, feel free to start a \href{https://github.com/ralna/JuliaHSL/discussions}{discussion}.
 
-% \bibliographystyle{abbrvnat}
-% \bibliography{abbrv,juliahsl}
+\bibliographystyle{abbrvnat}
+\bibliography{abbrv,juliahsl}
 
 \end{document}
 
