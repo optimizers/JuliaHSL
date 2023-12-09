@@ -1,78 +1,70 @@
-@misc{karypis-kumar-1997,
-  title  = {{METIS}: A software package for partitioning unstructured graphs, partitioning meshes, and computing fill-reducing orderings of sparse matrices},
-  author = {Karypis, George and Kumar, Vipin},
-  year   = {1997}
+% Julia
+@article{bezanson-edelman-karpinski-shah-2017,
+  title        = {{Julia: A Fresh Approach to Numerical Computing}},
+  author       = {Bezanson, Jeff and Edelman, Alan and Karpinski, Stefan and Shah, Viral B.},
+  year         = 2017,
+  journal      = sirev,
+  publisher    = {SIAM},
+  volume       = 59,
+  number       = 1,
+  pages        = {65--98},
+  doi          = {10.1137/141000671}
 }
+
+% METIS
+@article{karypis-kumar-1998,
+  title        = {A fast and high quality multilevel scheme for partitioning irregular graphs},
+  author       = {Karypis, George and Kumar, Vipin},
+  journal      = sisc,
+  volume       = {20},
+  number       = {1},
+  pages        = {359--392},
+  year         = {1998},
+  publisher    = {SIAM},
+  doi          = {10.1137/S1064827595287997}
+}
+
 % Ipopt
-@article{wachter2006implementation,
-  title={On the implementation of an interior-point filter line-search algorithm for large-scale nonlinear programming},
-  author={W{\"a}chter, Andreas and Biegler, Lorenz T.},
-  journal={Mathematical Programming},
-  volume={106},
-  number={1},
-  pages={25--57},
-  year={2006},
-  publisher={Springer},
-  doi={10.1007/s10107-004-0559-y}
+@article{wachter-2006,
+  title        = {On the implementation of an interior-point filter line-search algorithm for large-scale nonlinear programming},
+  author       = {W{\"a}chter, Andreas and Biegler, Lorenz T.},
+  journal      = mp,
+  volume       = {106},
+  number       = {1},
+  pages        = {25--57},
+  year         = {2006},
+  publisher    = {Springer},
+  doi          = {10.1007/s10107-004-0559-y}
 }
 
-@Misc{montoison-orban-hsl-2021,
-  author = {A. Montoison and D. Orban and {contributors}},
-  title = {{HSL.jl}: A {Julia} interface to the {HSL} Mathematical Software Library},
-  month = {March},
-  url = {https://github.com/JuliaSmoothOptimizers/HSL.jl},
-  year = {2021},
-  DOI = {10.5281/zenodo.2658672},
+% GALAHAD
+@article{gould-orban-toint-2003,
+  title        = {{GALAHAD}, a library of thread-safe Fortran 90 packages for large-scale nonlinear optimization},
+  author       = {Gould, Nicholas I.M. and Orban, Dominique and Toint, Philippe L.},
+  journal      = toms,
+  volume       = {29},
+  number       = {4},
+  pages        = {353--372},
+  year         = {2003},
+  publisher    = {ACM New York, NY, USA},
+  doi          = {10.1145/962437.962438},
 }
 
-@Manual{HSL,
-  Title                    = {The {HSL} Mathematical Software Library},
-  Author                   = {HSL},
-  url                      = {http://www.hsl.rl.ac.uk},
-  Organization             = {STFC Rutherford Appleton Laboratory},
-  Year                     = {2007}
+% HSL.jl
+@misc{montoison-orban-hsl-2021,
+  author       = {A. Montoison and D. Orban and {contributors}},
+  title        = {{HSL.jl}: A {Julia} interface to the {HSL} Mathematical Software Library},
+  month        = {March},
+  url          = {https://github.com/JuliaSmoothOptimizers/HSL.jl},
+  year         = {2021},
+  DOI          = {10.5281/zenodo.2658672},
 }
 
-@Article{duff-2004,
-  Title                    = {{\sf MA57}---a Code for the Solution of Sparse
- Symmetric Definite and Indefinite Systems},
-  Author                   = {I. S. Duff},
-  Journal                  = {ACM Transactions on Mathematical Software},
-  Year                     = {2004},
-  Number                   = {2},
-  Pages                    = {118--144},
-  Volume                   = {30},
-  Doi                      = {10.1145/992200.992202}
-}
-
-@article{gould2003galahad,
-  title={{GALAHAD}, a library of thread-safe Fortran 90 packages for large-scale nonlinear optimization},
-  author={Gould, Nicholas I.M. and Orban, Dominique and Toint, Philippe L.},
-  journal={ACM Transactions on Mathematical Software},
-  volume={29},
-  number={4},
-  pages={353--372},
-  year={2003},
-  publisher={ACM New York, NY, USA},
-  doi={10.1145/962437.962438},
-}
-
-@article{bezanson2017julia,
-  title={Julia: A fresh approach to numerical computing},
-  author={Bezanson, Jeff and Edelman, Alan and Karpinski, Stefan and Shah, Viral B.},
-  journal={SIAM Review},
-  volume={59},
-  number={1},
-  pages={65--98},
-  year={2017},
-  publisher={SIAM},
-  doi={10.1137/141000671}
-}
-
-@Misc{jso,
-  author = {T. Migot and D. Orban and A. S. Siqueira},
-  title = {The {JuliaSmoothOptimizers} Ecosystem for Linear and Nonlinear Optimization},
-  year = {2021},
-  url = {https://juliasmoothoptimizers.github.io/},
-  doi = {10.5281/zenodo.2655082},
+% HSL
+@manual{HSL,
+  Title        = {The {HSL} Mathematical Software Library},
+  Author       = {HSL},
+  url          = {http://www.hsl.rl.ac.uk},
+  Organization = {STFC Rutherford Appleton Laboratory},
+  Year         = {2007}
 }
